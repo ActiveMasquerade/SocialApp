@@ -16,7 +16,6 @@ import { toast } from "sonner";
 import { useSigninAccount } from "../../lib/react-query/queriesAndMutations";
 import { useUserContext } from "@/Context/AuthContext";
 import { Button } from "@/components/ui/button";
-import { account } from "@/lib/appwrite/config";
 
 const SigninForm = () => {
 	const form = useForm<z.infer<typeof SigninValidation>>({
@@ -27,8 +26,8 @@ const SigninForm = () => {
 		},
 	});
 	const navigate = useNavigate();
-	const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
-	const { mutateAsync: signInAccount, isPending } = useSigninAccount();
+	const { checkAuthUser } = useUserContext();
+	const { mutateAsync: signInAccount } = useSigninAccount();
 	const handleSignin = async (user: z.infer<typeof SigninValidation>) => {
 		try {
 			const session = await signInAccount(user);
