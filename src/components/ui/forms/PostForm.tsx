@@ -71,54 +71,57 @@ const PostForm = ({ post, action }: PostFormProps) => {
 				onSubmit={form.handleSubmit(handleSubmit)}
 				className="flex flex-col gap-9 w-full max-w-5xl"
 			>
+				{/* Caption */}
 				<FormField
 					control={form.control}
 					name="caption"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel className="text-white !important">Caption</FormLabel>
+							<FormLabel className="text-[#FAFAF5]">Caption</FormLabel>
 							<FormControl>
 								<Textarea
-									className="h-36 bg-dark-3 rounded-xl border-none focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3"
+									className="h-36 bg-[#232E2A] text-[#F5F3F0] placeholder:text-[#8C7C73] rounded-xl border border-[#2C2C28] focus-visible:ring-2 focus-visible:ring-[#70451F] focus-visible:ring-offset-0"
 									{...field}
 								/>
 							</FormControl>
-							<FormMessage className="text-red" />
+							<FormMessage className="text-[#D94A38]" />
 						</FormItem>
 					)}
 				/>
 
+				{/* File */}
 				<FormField
 					control={form.control}
 					name="file"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel className="text-white">Add Photos</FormLabel>
+							<FormLabel className="text-[#FAFAF5]">Add Photos</FormLabel>
 							<FormControl>
 								<FileUploader
 									fieldChange={field.onChange}
 									mediaUrl={post?.imageUrl}
 								/>
 							</FormControl>
-							<FormMessage className="text-red" />
+							<FormMessage className="text-[#D94A38]" />
 						</FormItem>
 					)}
 				/>
 
+				{/* Location */}
 				<FormField
 					control={form.control}
 					name="location"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel className="text-white">Add Location</FormLabel>
+							<FormLabel className="text-[#FAFAF5]">Add Location</FormLabel>
 							<FormControl>
 								<Input
 									type="text"
-									className="h-12 bg-dark-4 border-none placeholder:text-[#ccc] focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-[#ddd]  "
+									className="h-12 bg-[#1E1A1C] text-[#F5F3F0] placeholder:text-[#8C7C73] rounded-xl border border-[#2C2C28] focus-visible:ring-2 focus-visible:ring-[#70451F] focus-visible:ring-offset-0"
 									{...field}
 								/>
 							</FormControl>
-							<FormMessage className="text-red" />
+							<FormMessage className="text-[#D94A38]" />
 						</FormItem>
 					)}
 				/>
@@ -128,33 +131,34 @@ const PostForm = ({ post, action }: PostFormProps) => {
 					name="tags"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel className="text-white">
-								Add Tags (separated by comma " , ")
+							<FormLabel className="text-[#FAFAF5]">
+								Add Tags (comma separated)
 							</FormLabel>
 							<FormControl>
 								<Input
-									placeholder="Art, Expression, Learn"
 									type="text"
-									className="h-12 bg-dark-4 border-none placeholder:text-[#ccc] focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-[#ddd] "
+									placeholder="Art, Expression, Learn"
+									className="h-12 bg-[#1E1A1C] text-[#F5F3F0] placeholder:text-[#8C7C73] rounded-xl border border-[#2C2C28] focus-visible:ring-2 focus-visible:ring-[#70451F] focus-visible:ring-offset-0"
 									{...field}
 								/>
 							</FormControl>
-							<FormMessage className="text-red" />
+							<FormMessage className="text-[#D94A38]" />
 						</FormItem>
 					)}
 				/>
 
+				{/* Buttons */}
 				<div className="flex gap-4 items-center justify-end">
 					<Button
 						type="button"
-						className="h-12 bg-[#1F1F22] px-5 text-white flex gap-2 cursor-pointer !important"
+						className="h-12 bg-[#2C2426] text-[#F5F3F0] hover:bg-[#3A3132] rounded-md px-5"
 						onClick={() => navigate(-1)}
 					>
 						Cancel
 					</Button>
 					<Button
 						type="submit"
-						className="bg-primary text-black cursor-pointer flex gap-2 whitespace-nowrap !important "
+						className="bg-[#70451F] hover:bg-[#8A5628] text-white font-semibold px-6 py-2 rounded-md shadow-sm"
 					>
 						{action} Post
 					</Button>

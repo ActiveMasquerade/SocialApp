@@ -1,4 +1,5 @@
 import { useUserContext } from "@/Context/AuthContext";
+
 import { Outlet, Navigate } from "react-router-dom";
 const AuthLayout = () => {
 	const { isAuthenticated } = useUserContext();
@@ -12,7 +13,7 @@ const AuthLayout = () => {
 						<Outlet />
 					</section>
 					<img
-						src="/public/assets/images/side-img.svg"
+						src="/public/assets/images/sideAuth.jpeg"
 						alt="logo"
 						className="hidden lg:block h-screen object-cover bg-no-repeat w-1/2"
 					/>

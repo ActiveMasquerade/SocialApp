@@ -1,7 +1,7 @@
 import type { INewPost, INewUser, IUpdatePost, IUpdateUser } from "@/types";
 import { appwriteConfig, account, databases, storage, avatars } from "./config";
 import { ID, Query } from "appwrite";
-import { ImageGravity } from "appwrite";
+
 export const createUserAccount = async (user: INewUser) => {
 	try {
 		const newAccount = await account.create(ID.unique(), user.email, user.password, user.name);
@@ -141,14 +141,7 @@ export async function uploadFile(file: File) {
 
 export function getFilePreview(fileId: string): string | undefined {
 	try {
-		const fileUrl = storage.getFilePreview(
-			appwriteConfig.storageID,
-			fileId,
-			2000,
-			2000,
-			ImageGravity.Top,
-			100
-		);
+		const fileUrl = storage.getFileView(appwriteConfig.storageID, fileId);
 
 		if (!fileUrl) throw new Error("No file URL returned from Appwrite");
 

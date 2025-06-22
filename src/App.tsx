@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import AuthLayout from "./_auth/AuthLayout";
 import { Toaster } from "@/components/ui/sonner";
 import SignupForm from "./_auth/pages/SignupForm";

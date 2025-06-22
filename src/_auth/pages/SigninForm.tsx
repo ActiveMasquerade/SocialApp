@@ -52,10 +52,12 @@ const SigninForm = () => {
 	return (
 		<Form {...form}>
 			<div className="min-h-screen px-4 py-8 flex flex-col justify-center items-center w-full max-w-md mx-auto">
-				<img src="/assets/images/logo.svg" alt="Snapgram logo" className="h-10 mb-6" />
+				<img src="/assets/images/logo.svg" alt="logo" className=" w-64 mb-6" />
 
-				<h2 className="text-2xl font-semibold md:text-3xl">Log in to your account</h2>
-				<p className="text-sm text-muted-foreground mt-2 mb-6 text-center">
+				<h2 className="text-2xl font-semibold text-stone-100 md:text-3xl">
+					Log in to your account
+				</h2>
+				<p className="text-sm text-stone-400 mt-2 mb-6 text-center">
 					Welcome back! Please enter your details.
 				</p>
 
@@ -68,9 +70,14 @@ const SigninForm = () => {
 						name="email"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Email</FormLabel>
+								<FormLabel className="text-stone-300">Email</FormLabel>
 								<FormControl>
-									<Input type="email" placeholder="you@example.com" {...field} />
+									<Input
+										type="email"
+										placeholder="you@example.com"
+										className="bg-stone-800 text-white border-stone-600 placeholder-stone-500"
+										{...field}
+									/>
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -82,9 +89,14 @@ const SigninForm = () => {
 						name="password"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Password</FormLabel>
+								<FormLabel className="text-stone-300">Password</FormLabel>
 								<FormControl>
-									<Input type="password" placeholder="••••••••" {...field} />
+									<Input
+										type="password"
+										placeholder="••••••••"
+										className="bg-stone-800 text-white border-stone-600 placeholder-stone-500"
+										{...field}
+									/>
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -93,16 +105,18 @@ const SigninForm = () => {
 
 					<Button
 						type="submit"
-						variant="outline"
-						className="w-full hover:opacity-80 hover:cursor-pointer"
+						className="w-full bg-stone-700 hover:bg-stone-600 text-white font-semibold"
 					>
 						Sign in
 					</Button>
 
-					<p className="text-sm text-center text-gray-400">
+					<p className="text-sm text-center text-stone-400">
 						Don't have an account?
-						<Link to="/sign-up" className="text-secondary ml-1 underline">
-							Sign in
+						<Link
+							to="/sign-up"
+							className="text-stone-200 ml-1 underline hover:text-stone-50"
+						>
+							Sign up
 						</Link>
 					</p>
 				</form>

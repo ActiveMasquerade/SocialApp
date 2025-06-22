@@ -15,11 +15,10 @@ import { toast } from "sonner";
 import { Input } from "@/components/ui/input";
 import { SignupSchema } from "@/lib/validation";
 
-import { useCreateUserAccount, useSigninAccount } from "@/lib/react-query/queriesAndMutations";
-import { signinAccount } from "@/lib/appwrite/api";
+import { useCreateUserAccount } from "@/lib/react-query/queriesAndMutations";
 
 const SignupForm = () => {
-	const { mutateAsync: createUserAccount, isPending } = useCreateUserAccount();
+	const { mutateAsync: createUserAccount } = useCreateUserAccount();
 	const form = useForm<z.infer<typeof SignupSchema>>({
 		resolver: zodResolver(SignupSchema),
 		defaultValues: {
@@ -45,10 +44,10 @@ const SignupForm = () => {
 			<div className="min-h-screen px-4 py-8 flex flex-col justify-center items-center w-full max-w-md mx-auto">
 				<img src="/assets/images/logo.svg" alt="logo" className="h-10 mb-6" />
 
-				<h2 className="text-2xl font-semibold md:text-3xl text-center">
+				<h2 className="text-2xl font-semibold md:text-3xl text-center text-stone-100">
 					Create a new account
 				</h2>
-				<p className="text-sm text-gray-500 mt-2 mb-6 text-center">
+				<p className="text-sm text-stone-400 mt-2 mb-6 text-center">
 					To use Snapgram, please enter your details below.
 				</p>
 
@@ -58,13 +57,13 @@ const SignupForm = () => {
 						name="name"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Name</FormLabel>
+								<FormLabel className="text-stone-300">Name</FormLabel>
 								<FormControl>
 									<Input
 										type="text"
 										placeholder="John Doe"
 										{...field}
-										className="border-none"
+										className="bg-stone-800 text-white border-stone-600 placeholder-stone-500"
 									/>
 								</FormControl>
 								<FormMessage />
@@ -77,13 +76,13 @@ const SignupForm = () => {
 						name="username"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Username</FormLabel>
+								<FormLabel className="text-stone-300">Username</FormLabel>
 								<FormControl>
 									<Input
 										type="text"
 										placeholder="username"
 										{...field}
-										className="border-none"
+										className="bg-stone-800 text-white border-stone-600 placeholder-stone-500"
 									/>
 								</FormControl>
 								<FormMessage />
@@ -96,13 +95,13 @@ const SignupForm = () => {
 						name="email"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Email</FormLabel>
+								<FormLabel className="text-stone-300">Email</FormLabel>
 								<FormControl>
 									<Input
 										type="email"
 										placeholder="john@example.com"
 										{...field}
-										className="border-none"
+										className="bg-stone-800 text-white border-stone-600 placeholder-stone-500"
 									/>
 								</FormControl>
 								<FormMessage />
@@ -115,13 +114,13 @@ const SignupForm = () => {
 						name="password"
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel>Password</FormLabel>
+								<FormLabel className="text-stone-300">Password</FormLabel>
 								<FormControl>
 									<Input
 										type="password"
 										placeholder="••••••••"
 										{...field}
-										className="border-none"
+										className="bg-stone-800 text-white border-stone-600 placeholder-stone-500"
 									/>
 								</FormControl>
 								<FormMessage />
@@ -131,15 +130,17 @@ const SignupForm = () => {
 
 					<Button
 						type="submit"
-						variant="outline"
-						className="w-full hover:opacity-80 hover:cursor-pointer"
+						className="w-full bg-stone-700 hover:bg-stone-600 text-white font-semibold"
 					>
 						Sign Up
 					</Button>
 
-					<p className="text-sm text-center text-gray-400">
+					<p className="text-sm text-center text-stone-400">
 						Already have an account?
-						<Link to="/sign-in" className="text-secondary ml-1 underline">
+						<Link
+							to="/sign-in"
+							className="text-stone-200 ml-1 underline hover:text-stone-50"
+						>
 							Log in
 						</Link>
 					</p>

@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../button";
-import { signoutAccount } from "@/lib/appwrite/api";
 import { useSignoutAccount } from "@/lib/react-query/queriesAndMutations";
 import { useEffect } from "react";
 import { useUserContext } from "@/Context/AuthContext";
@@ -30,7 +29,10 @@ const TopBar = () => {
 					<Button
 						variant="ghost"
 						className="p-2 hover:bg-transparent hover:text-white"
-						onClick={() => signout()}
+						onClick={async () => {
+							await signout();
+							window.location.reload();
+						}}
 					>
 						<img src="/assets/icons/logout.svg" alt="logout" className="h-5 w-5" />
 					</Button>

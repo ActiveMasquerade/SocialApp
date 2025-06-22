@@ -4,16 +4,17 @@ import LeftBar from "@/components/ui/shared/LeftBar";
 import BottomBar from "@/components/ui/shared/BottomBar";
 const RootLayout = () => {
 	return (
-		<div className="w-full md:flex">
-			<TopBar />
-			<LeftBar />
+		<>
+			<div className="w-full md:flex bg-[#0f050f]">
+				<TopBar />
+				<LeftBar />
 
-			<section className="flex flex-1 h-full">
-				<Outlet />
-			</section>
-
-			<BottomBar />
-		</div>
+				<section className="flex flex-1 h-full">
+					<Outlet />
+				</section>
+				<BottomBar />
+			</div>
+		</>
 	);
 };
 

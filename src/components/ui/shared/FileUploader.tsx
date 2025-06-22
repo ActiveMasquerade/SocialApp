@@ -31,7 +31,7 @@ const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
 	return (
 		<div
 			{...getRootProps()}
-			className="flex flex-col items-center justify-center bg-neutral-900 rounded-xl cursor-pointer"
+			className="flex flex-col items-center justify-center bg-[#120912] rounded-xl cursor-pointer border border-[#1A0E1A] hover:shadow-md transition"
 		>
 			<input {...getInputProps()} className="cursor-pointer" />
 
@@ -44,22 +44,22 @@ const FileUploader = ({ fieldChange, mediaUrl }: FileUploaderProps) => {
 							className="h-80 lg:h-[480px] w-full rounded-2xl object-cover object-top"
 						/>
 					</div>
-					<p className="text-neutral-400 text-center text-sm w-full p-4 border-t border-neutral-800">
+					<p className="text-[#8C7C73] text-center text-sm w-full p-4 border-t border-[#1A0E1A]">
 						Click or drag photo to replace
 					</p>
 				</>
 			) : (
-				<div className="flex flex-col items-center justify-center p-7 h-80 lg:h-[612px] w-full">
+				<div className="flex flex-col items-center justify-center p-7 h-80 lg:h-[612px] w-full border-2 border-gray-800 rounded-md">
 					<img src="/assets/icons/file-upload.svg" width={96} height={77} alt="Upload" />
 
-					<h3 className="text-base font-medium text-neutral-100 mb-2 mt-6">
+					<h3 className="text-base font-medium text-[#FAFAF5] mb-2 mt-6">
 						Drag photo here
 					</h3>
-					<p className="text-sm text-neutral-400 mb-6">SVG, PNG, JPG</p>
+					<p className="text-sm text-[#B9B4AF] mb-6">SVG, PNG, JPG</p>
 
 					<button
 						type="button"
-						className="bg-neutral-800 text-white text-sm font-medium px-4 py-2 rounded-md hover:bg-neutral-700 transition"
+						className="bg-[#5D3C18] text-white text-sm font-semibold px-4 py-2 rounded-md hover:bg-[#8A5628] transition-all shadow-sm"
 					>
 						Select from computer
 					</button>

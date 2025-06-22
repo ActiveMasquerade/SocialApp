@@ -10,11 +10,11 @@ const Home = () => {
 	if (isErrorPosts || isErrorCreators) {
 		return (
 			<div className="flex flex-1">
-				<div className="home-container">
-					<p className="body-medium text-light-1">Something bad happened</p>
+				<div className="flex flex-col flex-1 items-center gap-10 overflow-scroll py-10 px-5 md:px-8 lg:p-14">
+					<p className="text-lg font-medium text-white">Something bad happened</p>
 				</div>
-				<div className="home-creators">
-					<p className="body-medium text-light-1">Something bad happened</p>
+				<div className="hidden xl:flex flex-col w-72 2xl:w-[465px] px-6 py-10 gap-10 overflow-scroll">
+					<p className="text-lg font-medium text-white">Something bad happened</p>
 				</div>
 			</div>
 		);
@@ -22,25 +22,29 @@ const Home = () => {
 
 	return (
 		<div className="flex flex-1">
-			<div className="home-container">
-				<div className="home-posts">
-					<h2 className="h3-bold md:h2-bold text-left w-full">Home Feed</h2>
+			<div className="flex flex-col flex-1 items-center gap-10 overflow-scroll py-10 px-5 md:px-8 lg:p-14">
+				<div className="max-w-screen-sm flex flex-col items-center w-full gap-6 md:gap-9">
+					<h2 className="text-2xl md:text-3xl font-bold leading-tight w-full text-left text-white">
+						Home Feed
+					</h2>
 					{isPostLoading && !posts ? (
 						<Loader />
 					) : (
-						<ul className="flex flex-col flex-1 gap-9 w-full ">
-							{posts?.documents.map((post: Models.Document) => (
-								<li key={post.$id} className="flex justify-center w-full">
-									<PostCard post={post} />
-								</li>
-							))}
+						<ul className="flex flex-col flex-1 gap-9 w-full">
+							{posts?.documents.map((post: Models.Document) => {
+								return (
+									<li key={post.$id} className="flex justify-center w-full">
+										<PostCard post={post} />
+									</li>
+								);
+							})}
 						</ul>
 					)}
 				</div>
 			</div>
 
-			<div className="home-creators">
-				<h3 className="h3-bold text-light-1">Top Creators</h3>
+			<div className="hidden xl:flex flex-col w-72 2xl:w-[465px] px-6 py-10 gap-10 overflow-scroll">
+				<h3 className="text-2xl font-bold leading-tight text-white">Top Creators</h3>
 				{isUserLoading && !creators ? (
 					<Loader />
 				) : (
